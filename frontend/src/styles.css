@@ -1,0 +1,485 @@
+/* ====== DeliverTrack · hoja de estilos ====== */
+:root {
+  --primario: #1d4ed8;
+  --primario-oscuro: #16307d;
+  --fondo: #f1f5f9;
+  --tarjeta: #ffffff;
+  --texto: #0f172a;
+  --texto-suave: #64748b;
+  --borde: #e2e8f0;
+  --verde: #16a34a;
+  --amarillo: #d97706;
+  --rojo: #dc2626;
+  --radio: 10px;
+  --sombra: 0 1px 3px rgba(15, 23, 42, 0.08), 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+.aplicacion {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenido {
+  flex: 1;
+  width: min(1100px, 100% - 2rem);
+  margin: 0 auto;
+  padding: 1.5rem 0 3rem;
+}
+
+h2 {
+  margin: 0.4rem 0 1rem;
+}
+
+/* ---- Barra de navegación ---- */
+.barra {
+  background: var(--primario-oscuro);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.6rem 1.4rem;
+  flex-wrap: wrap;
+}
+
+.barra__marca {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.2px;
+}
+
+.barra__enlaces {
+  display: flex;
+  gap: 0.3rem;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.barra__enlace {
+  color: #dbeafe;
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.barra__enlace--activo,
+.barra__enlace:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.barra__usuario {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.barra__datos {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.barra__datos small {
+  color: #c7d2fe;
+}
+
+/* ---- Tarjetas y cuadros ---- */
+.tarjeta {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 1.2rem;
+}
+
+.tarjeta h3 {
+  margin: 0 0 0.8rem;
+  font-size: 1rem;
+}
+
+.cuadros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.cuadro {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 0.9rem 1rem;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.cuadro strong {
+  font-size: 1.6rem;
+  color: var(--texto);
+}
+
+.cuadro--ok strong {
+  color: var(--verde);
+}
+.cuadro--riesgo strong {
+  color: var(--amarillo);
+}
+.cuadro--retraso strong {
+  color: var(--rojo);
+}
+
+/* ---- Tablas ---- */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.tabla th,
+.tabla td {
+  text-align: left;
+  padding: 0.55rem 0.6rem;
+  border-bottom: 1px solid var(--borde);
+  vertical-align: middle;
+}
+
+.tabla th {
+  color: var(--texto-suave);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.tabla tr:hover td {
+  background: #f8fafc;
+}
+
+.celda-acciones {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+/* ---- Etiquetas y riesgos ---- */
+.etiqueta {
+  display: inline-block;
+  padding: 0.18rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.etiqueta--verde {
+  background: #dcfce7;
+  color: #166534;
+}
+.etiqueta--azul {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.etiqueta--morado {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+.etiqueta--rojo {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.etiqueta--gris {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.riesgo {
+  font-weight: 600;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.riesgo small {
+  display: block;
+  font-weight: 400;
+  color: var(--texto-suave);
+}
+
+.riesgo--retrasada {
+  color: var(--rojo);
+}
+.riesgo--en_riesgo {
+  color: var(--amarillo);
+}
+.riesgo--normal {
+  color: var(--verde);
+}
+
+.texto-rojo {
+  color: var(--rojo);
+}
+.texto-amarillo {
+  color: var(--amarillo);
+}
+
+/* ---- Botones y formularios ---- */
+.boton {
+  border: 1px solid var(--borde);
+  background: #fff;
+  color: var(--texto);
+  border-radius: 8px;
+  padding: 0.42rem 0.85rem;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.boton:hover {
+  filter: brightness(0.95);
+}
+
+.boton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.boton--primario {
+  background: var(--primario);
+  border-color: var(--primario);
+  color: #fff;
+}
+
+.boton--peligro {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: var(--rojo);
+}
+
+.boton--secundario {
+  background: transparent;
+  color: inherit;
+  border-color: currentColor;
+}
+
+.formulario {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+  align-items: end;
+}
+
+.formulario label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea,
+.cabecera-pagina select {
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 0.5rem 0.65rem;
+  font: inherit;
+  font-weight: 400;
+  color: var(--texto);
+  background: #fff;
+  width: 100%;
+}
+
+.ancho-completo {
+  grid-column: 1 / -1;
+}
+
+/* ---- Avisos ---- */
+.aviso-error,
+.aviso-ok {
+  border-radius: var(--radio);
+  padding: 0.65rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.aviso-error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.aviso-ok {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+/* ---- Alertas ---- */
+.panel-alertas ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.panel-alertas li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  border-bottom: 1px dashed var(--borde);
+  padding-bottom: 0.5rem;
+}
+
+/* ---- Login ---- */
+.login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #16307d 0%, #1d4ed8 60%, #2563eb 100%);
+  padding: 1rem;
+}
+
+.login__tarjeta {
+  width: min(400px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.login__tarjeta h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.login__subtitulo {
+  text-align: center;
+  color: var(--texto-suave);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.login__tarjeta label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+
+.login__tarjeta input {
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+}
+
+.login__demo {
+  text-align: center;
+  color: var(--texto-suave);
+}
+
+.login__demo code {
+  background: var(--fondo);
+  padding: 0.1rem 0.35rem;
+  border-radius: 6px;
+}
+
+/* ---- Tarjetas de entrega (repartidor) ---- */
+.tarjetas-entrega {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.tarjeta-entrega header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.tarjeta-entrega p {
+  margin: 0.35rem 0;
+  font-size: 0.92rem;
+}
+
+.tarjeta-entrega__cliente {
+  font-weight: 700;
+  font-size: 1.02rem;
+}
+
+.tarjeta-entrega__acciones {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.8rem;
+  align-items: center;
+}
+
+/* ---- Modal ---- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 50;
+}
+
+.modal__panel {
+  width: min(480px, 100%);
+  margin: 0;
+}
+
+.modal__cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+/* ---- Misceláneos ---- */
+.cabecera-pagina {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cabecera-pagina select {
+  width: auto;
+}
+
+.rejilla-graficas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.2rem;
+}
