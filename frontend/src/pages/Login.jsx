@@ -33,21 +33,35 @@ export default function Login() {
 
   return (
     <div className="login">
+      <div className="login__glow login__glow--one" />
+      <div className="login__glow login__glow--two" />
+
       <form className="tarjeta login__tarjeta" onSubmit={enviar}>
-        <h1>🚚 DeliverTrack</h1>
+        <div className="login__brand-wrap">
+          <div className="login__brand-mark">DT</div>
+          <div>
+            <div className="login__eyebrow">Logística inteligente</div>
+            <h1>DeliverTrack</h1>
+          </div>
+        </div>
+
         <p className="login__subtitulo">
           Sistema de control y seguimiento de entregas
         </p>
+
         {error && <div className="aviso-error">{error}</div>}
+
         <label>
           Usuario
           <input
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             autoComplete="username"
+            placeholder="admin"
             required
           />
         </label>
+
         <label>
           Contraseña
           <input
@@ -55,18 +69,24 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             autoComplete="current-password"
+            placeholder="••••••••"
             required
           />
         </label>
-        <button className="boton boton--primario" disabled={cargando}>
+
+        <button className="boton boton--primario login__boton" disabled={cargando}>
           {cargando ? "Ingresando…" : "Ingresar"}
         </button>
+
         <div className="login__demo">
-          <small>
-            Usuarios de demostración: <code>admin</code> · <code>carlos</code> ·{" "}
-            <code>maria</code> · <code>pedro</code> — contraseña{" "}
-            <code>Demo1234!</code>
-          </small>
+          <span className="login__demo-label">Usuarios demo</span>
+          <div className="login__demo-row">
+            <code>admin</code>
+            <code>carlos</code>
+            <code>maria</code>
+            <code>pedro</code>
+          </div>
+          <small>Contraseña: <code>Demo1234!</code></small>
         </div>
       </form>
     </div>
