@@ -1,17 +1,27 @@
 /* ====== DeliverTrack · hoja de estilos ====== */
 :root {
-  --primario: #1d4ed8;
-  --primario-oscuro: #16307d;
-  --fondo: #f1f5f9;
+  /* Identidad visual: DeliverTrack */
+  --primario: #1687c9;
+  --primario-oscuro: #15324b;
+  --celeste: #e6f5fc;
+  --fondo: #ffffff;
   --tarjeta: #ffffff;
-  --texto: #0f172a;
-  --texto-suave: #64748b;
-  --borde: #e2e8f0;
-  --verde: #16a34a;
-  --amarillo: #d97706;
-  --rojo: #dc2626;
-  --radio: 10px;
-  --sombra: 0 1px 3px rgba(15, 23, 42, 0.08), 0 4px 14px rgba(15, 23, 42, 0.06);
+
+  /* Textos y bordes */
+  --texto: #183247;
+  --texto-suave: #718596;
+  --borde: #dce8f0;
+
+  /* Estados e indicadores */
+  --verde: #16845b;
+  --amarillo: #b87508;
+  --rojo: #cf414b;
+  --morado: #7958b5;
+
+  /* Acabados */
+  --radio: 14px;
+  --sombra: 0 2px 8px rgba(21, 50, 75, 0.04),
+            0 8px 24px rgba(21, 50, 75, 0.05);
 }
 
 * {
@@ -21,7 +31,7 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  background: var(--fondo);
+  background: #ffffff;
   color: var(--texto);
 }
 
@@ -29,6 +39,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: #ffffff;
 }
 
 .contenido {
@@ -360,9 +371,9 @@ h2 {
   align-items: center;
   justify-content: center;
   background:
-    radial-gradient(circle at top left, rgba(59, 130, 246, 0.35), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.32), transparent 30%),
-    linear-gradient(135deg, #071827 0%, #0d1d2d 35%, #122845 100%);
+    radial-gradient(circle at top left, rgba(96, 165, 250, 0.22), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.14), transparent 30%),
+    linear-gradient(135deg, #f3f8ff 0%, #eef6fb 35%, #f5f3ff 100%);
   padding: 1rem;
   overflow: hidden;
 }
@@ -373,17 +384,17 @@ h2 {
   height: 500px;
   border-radius: 50%;
   filter: blur(70px);
-  opacity: 0.42;
+  opacity: 0.55;
 }
 
 .login__glow--one {
-  background: rgba(59, 130, 246, 0.45);
+  background: rgba(96, 165, 250, 0.22);
   top: -120px;
   left: -100px;
 }
 
 .login__glow--two {
-  background: rgba(168, 85, 247, 0.28);
+  background: rgba(168, 85, 247, 0.18);
   bottom: -150px;
   right: -80px;
 }
@@ -395,10 +406,10 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background: rgba(11, 20, 31, 0.72);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  box-shadow: 0 24px 60px rgba(2, 6, 23, 0.55);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
   border-radius: 28px;
   padding: 1.8rem 1.7rem 1.4rem;
 }
@@ -420,14 +431,14 @@ h2 {
   color: #f8fbff;
   font-weight: 900;
   font-size: 1.1rem;
-  box-shadow: 0 16px 30px rgba(59, 130, 246, 0.35);
+  box-shadow: 0 16px 30px rgba(59, 130, 246, 0.28);
 }
 
 .login__eyebrow {
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #93c5fd;
+  color: #1d4ed8;
   font-weight: 700;
 }
 
@@ -436,12 +447,12 @@ h2 {
   text-align: left;
   font-size: clamp(1.7rem, 2vw, 2.4rem);
   letter-spacing: -0.06em;
-  color: #f8fbff;
+  color: #172554;
 }
 
 .login__subtitulo {
   text-align: left;
-  color: #b4c5d9;
+  color: #475569;
   margin: 0;
   font-size: 0.92rem;
   line-height: 1.5;
@@ -453,27 +464,27 @@ h2 {
   gap: 0.38rem;
   font-size: 0.8rem;
   font-weight: 700;
-  color: #cfe0f7;
+  color: #334155;
 }
 
 .login__tarjeta input {
-  border: 1px solid rgba(148, 163, 184, 0.22);
+  border: 1px solid rgba(148, 163, 184, 0.42);
   border-radius: 14px;
-  background: rgba(15, 23, 42, 0.65);
-  color: #eff6ff;
+  background: #ffffff;
+  color: #0f172a;
   padding: 0.8rem 0.9rem;
   font: inherit;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .login__tarjeta input::placeholder {
-  color: #8398b7;
+  color: #64748b;
 }
 
 .login__tarjeta input:focus {
   outline: none;
-  border-color: rgba(96, 165, 250, 0.8);
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+  border-color: rgba(37, 99, 235, 0.7);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
 }
 
 .login__boton {
@@ -484,12 +495,12 @@ h2 {
   font-size: 0.96rem;
   background: linear-gradient(135deg, #38bdf8, #2563eb 68%, #7c3aed);
   border: none;
-  box-shadow: 0 18px 30px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 18px 30px rgba(37, 99, 235, 0.2);
 }
 
 .login__demo {
   text-align: left;
-  color: #d6e7fa;
+  color: #334155;
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
@@ -501,7 +512,7 @@ h2 {
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #93c5fd;
+  color: #1d4ed8;
   font-weight: 700;
 }
 
@@ -512,9 +523,9 @@ h2 {
 }
 
 .login__demo code {
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(59, 130, 246, 0.08);
   border: 1px solid rgba(96, 165, 250, 0.18);
-  color: #dbeafe;
+  color: #1e3a8a;
   padding: 0.2rem 0.42rem;
   border-radius: 999px;
   font-size: 0.76rem;
@@ -593,4 +604,391 @@ h2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.2rem;
+}
+
+/* ====== Rediseño DeliverTrack: navegación lateral ====== */
+
+.aplicacion {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  background: var(--fondo);
+}
+
+.barra {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  min-height: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 28px 16px 18px;
+  background: #15324b;
+  color: #fff;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 20;
+}
+
+.barra__marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 8px 30px;
+  font-size: 1.15rem;
+  letter-spacing: -0.4px;
+}
+
+.barra__logo {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 43px;
+  height: 43px;
+  border-radius: 14px;
+  background: #38bdf8;
+  color: #15324b;
+  font-size: 1.4rem;
+  font-weight: 900;
+  box-shadow: 0 6px 18px rgba(56, 189, 248, 0.2);
+}
+
+.barra__marca-texto {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.12rem;
+  font-weight: 800;
+}
+
+.barra__marca-texto > span {
+  display: inline;
+  color: #7dd3fc;
+}
+
+.barra__marca-texto small {
+  margin-top: 5px;
+  color: #9bb5c9;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+}
+
+.barra__seccion {
+  padding: 0 12px;
+  margin: 0 0 12px;
+  color: #86a5bb;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+}
+
+.barra__enlaces {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 7px;
+  min-width: 0;
+}
+
+.barra__enlace {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  color: #c2d3df;
+  text-decoration: none;
+  font-size: 0.91rem;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.barra__enlace:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.barra__enlace--activo {
+  color: #fff;
+  background: rgba(56, 189, 248, 0.15);
+  border-color: rgba(125, 211, 252, 0.16);
+}
+
+.barra__enlace--activo::before {
+  content: "";
+  position: absolute;
+  left: -17px;
+  top: 9px;
+  bottom: 9px;
+  width: 4px;
+  border-radius: 0 4px 4px 0;
+  background: #38bdf8;
+}
+
+.barra__icono {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.barra__icono--0 {
+  color: #7dd3fc;
+  background: rgba(56, 189, 248, 0.14);
+}
+
+.barra__icono--1 {
+  color: #c4b5fd;
+  background: rgba(167, 139, 250, 0.14);
+}
+
+.barra__icono--2 {
+  color: #86efac;
+  background: rgba(74, 222, 128, 0.13);
+}
+
+.barra__icono--3 {
+  color: #fcd34d;
+  background: rgba(251, 191, 36, 0.13);
+}
+
+.barra__icono--4 {
+  color: #fda4af;
+  background: rgba(251, 113, 133, 0.13);
+}
+
+.barra__flecha {
+  margin-left: auto;
+  color: #7f9aaf;
+  font-size: 1.35rem;
+}
+
+.barra__enlace--activo .barra__flecha {
+  color: #7dd3fc;
+}
+
+.barra__pie {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.barra__perfil {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 8px 4px 14px;
+}
+
+.barra__avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  background: #d8f2ff;
+  color: #15324b;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.barra__datos {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.barra__datos span {
+  overflow: hidden;
+  color: #fff;
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.barra__datos small {
+  color: #9bb5c9;
+  font-size: 0.76rem;
+}
+
+.barra__salir {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #d5e3ec;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.barra__salir:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.contenido {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+  padding: 32px;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 760px) {
+  .aplicacion {
+    grid-template-columns: 1fr;
+  }
+
+  .barra {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    padding: 16px;
+  }
+
+  .barra__marca {
+    padding-bottom: 18px;
+  }
+
+  .barra__seccion {
+    margin-top: 4px;
+  }
+
+  .barra__enlaces {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .barra__enlace {
+    flex: 1 1 140px;
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .barra__enlace--activo::before {
+    display: none;
+  }
+
+  .barra__flecha {
+    display: none;
+  }
+
+  .barra__pie {
+    margin-top: 14px;
+  }
+
+  .contenido {
+    padding: 20px 16px;
+  }
+}
+
+@media (max-width: 420px) {
+  .barra__enlace {
+    flex-basis: 100%;
+  }
+}
+
+/* ===== Corrección de colores claros ===== */
+
+.aplicacion {
+  background: #f3f8fc !important;
+  color: #183247;
+}
+
+.contenido {
+  background: #f3f8fc !important;
+  color: #183247;
+}
+
+/* Tarjetas blancas */
+.tarjeta,
+.card,
+.entrega-card,
+.entrega,
+.panel {
+  background-color: #ffffff;
+  color: #183247;
+  border-color: #dce8f0;
+}
+
+/* Textos dentro de las tarjetas */
+.contenido h1,
+.contenido h2,
+.contenido h3,
+.contenido p,
+.contenido strong,
+.contenido label {
+  color: #183247;
+}
+
+/* Mantener la barra lateral azul marino */
+.barra {
+  background: #15324b !important;
+  color: #ffffff;
+}
+
+/* ===== Tema claro definitivo para DeliverTrack ===== */
+
+html,
+body,
+#root {
+  min-height: 100%;
+  background: #f3f8fc !important;
+  color: #183247 !important;
+}
+
+.aplicacion,
+.contenido {
+  background: #f3f8fc !important;
+  color: #183247 !important;
+}
+
+/* Tarjetas de Mis entregas */
+.tarjetas-entrega .tarjeta-entrega {
+  background: #ffffff !important;
+  color: #183247 !important;
+  border: 1px solid #dce8f0 !important;
+  box-shadow: 0 4px 14px rgba(21, 50, 75, 0.06) !important;
+}
+
+.tarjeta-entrega h1,
+.tarjeta-entrega h2,
+.tarjeta-entrega h3,
+.tarjeta-entrega p,
+.tarjeta-entrega strong,
+.tarjeta-entrega span {
+  color: #183247;
+}
+
+/* Conservar el color de los estados */
+.tarjeta-entrega .badge,
+.tarjeta-entrega [class*="estado"],
+.tarjeta-entrega [class*="badge"] {
+  /* Los colores específicos de cada estado se mantienen */
+}
+
+/* Barra lateral */
+.barra {
+  background: #15324b !important;
+  color: #ffffff !important;
 }
