@@ -2,54 +2,83 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth.jsx";
 
 const ENLACES_ADMIN = [
-  { a: "/", texto: "Tablero" },
-  { a: "/pedidos", texto: "Pedidos" },
-  { a: "/entregas", texto: "Entregas" },
-  { a: "/analitica", texto: "Analítica" },
-  { a: "/historial", texto: "Historial" },
+  { a: "/", texto: "Tablero", icono: "▦" },
+  { a: "/pedidos", texto: "Pedidos", icono: "▤" },
+  { a: "/entregas", texto: "Entregas", icono: "⇢" },
+  { a: "/analitica", texto: "Analítica", icono: "▥" },
+  { a: "/historial", texto: "Historial", icono: "◷" },
 ];
-const ENLACES_REPARTIDOR = [{ a: "/mis-entregas", texto: "Mis entregas" }];
+
+const ENLACES_REPARTIDOR = [
+  { a: "/mis-entregas", texto: "Mis entregas", icono: "▣" },
+];
 
 export default function Navbar() {
   const { usuario, cerrarSesion } = useAuth();
   const navegar = useNavigate();
+
   if (!usuario) return null;
 
   const esAdmin = usuario.rol === "ADMIN";
   const enlaces = esAdmin ? ENLACES_ADMIN : ENLACES_REPARTIDOR;
+  const nombre = usuario.first_name || usuario.username || "Usuario";
+  const inicial = nombre.charAt(0).toUpperCase();
 
   return (
-    <header className="barra">
-      <div className="barra__marca">🚚 DeliverTrack</div>
-      <nav className="barra__enlaces">
-        {enlaces.map((enlace) => (
+    <aside className="barra">
+      <div className="barra__marca">
+        <span className="barra__logo">D</span>
+        <span className="barra__marca-texto">
+          Deliver<span>Track</span>
+          <small>GESTIÓN DE ENTREGAS</small>
+        </span>
+      </div>
+
+      <div className="barra__seccion">MENÚ PRINCIPAL</div>
+
+      <nav className="barra__enlaces" aria-label="Navegación principal">
+        {enlaces.map((enlace, indice) => (
           <NavLink
             key={enlace.a}
             to={enlace.a}
             end={enlace.a === "/"}
             className={({ isActive }) =>
-              isActive ? "barra__enlace barra__enlace--activo" : "barra__enlace"
+              `barra__enlace${isActive ? " barra__enlace--activo" : ""}`
             }
           >
-            {enlace.texto}
+            <span
+              className={`barra__icono barra__icono--${indice % 5}`}
+              aria-hidden="true"
+            >
+              {enlace.icono}
+            </span>
+            <span>{enlace.texto}</span>
+            <span className="barra__flecha" aria-hidden="true">›</span>
           </NavLink>
         ))}
       </nav>
-      <div className="barra__usuario">
-        <div className="barra__datos">
-          <span>{usuario.first_name || usuario.username}</span>
-          <small>{esAdmin ? "Administrador" : "Repartidor"}</small>
+
+      <div className="barra__pie">
+        <div className="barra__perfil">
+          <div className="barra__avatar">{inicial}</div>
+          <div className="barra__datos">
+            <span title={nombre}>{nombre}</span>
+            <small>{esAdmin ? "Administrador" : "Repartidor"}</small>
+          </div>
         </div>
+
         <button
-          className="boton boton--secundario"
+          className="barra__salir"
+          type="button"
           onClick={() => {
             cerrarSesion();
             navegar("/login");
           }}
         >
-          Salir
+          <span aria-hidden="true">↪</span>
+          Cerrar sesión
         </button>
       </div>
-    </header>
+    </aside>
   );
 }
